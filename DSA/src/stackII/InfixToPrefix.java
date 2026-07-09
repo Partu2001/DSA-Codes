@@ -1,0 +1,41 @@
+package stackII;
+
+import java.util.Stack;
+
+public class InfixToPrefix {
+
+    public static void convertInfixToPrefix(String infix) {
+
+        Stack<String> operand = new Stack<>();
+        Stack<Character> operator = new Stack<>();
+
+        for (char ch : infix.toCharArray()) {
+            if (Character.isLetterOrDigit(ch)) {
+                operand.push(ch + "");
+            }
+            else if (ch == '(') {
+                operator.push(ch);
+            }
+            else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+                operator.push(ch);
+            }
+            else if (ch == ')') {
+                String op2 = operand.pop();
+                String op1 = operand.pop();
+                char op = operator.pop();
+                String prefix = op + op1 + op2;
+                
+                operand.push(prefix);
+                operator.pop(); 
+            }
+        }
+        System.out.println("Prefix : " + operand.pop());
+    }
+
+    
+    public static void main(String[] args) {
+        String infix = "(A+B)";
+        System.out.println("Input : " + infix);
+        convertInfixToPrefix(infix);
+    }
+}

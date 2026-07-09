@@ -1,0 +1,40 @@
+package tree;
+
+class Node{
+	int data;
+	Node right,left;
+	boolean rthread,lthread;
+	
+	public Node(int data) {
+		this.data=data;
+		right=left=null;
+		rthread=false;
+		lthread=false;
+	}
+}
+
+public class ThreadedBinaryTree {
+
+	
+	public static Node leftmost(Node node) {	
+		if(node==null) {
+			return null;
+		}
+		while(!node.lthread) {
+			node=node.left;
+		}
+		return node;
+	}
+	
+	
+	public static void inorder(Node node) {
+		
+		
+	}
+	
+	
+	public static void main(String[] args) {
+
+	}
+
+}

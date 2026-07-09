@@ -1,0 +1,14 @@
+package tree;
+
+class Node{
+	 int data;
+	 Node right,left;
+}
+public class BinaryTree {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

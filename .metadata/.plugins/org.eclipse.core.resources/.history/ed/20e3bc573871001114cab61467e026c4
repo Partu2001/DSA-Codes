@@ -1,0 +1,55 @@
+package queue;
+
+public class TestQueue {
+
+	int arr[];
+	int front,rear,size,n;
+	
+	public TestQueue(){
+		this.n=n;
+		arr=new int[n];
+		front=0;
+		rear=-1;
+		size=0;
+	}
+	
+	public void enqueue(int n) {
+		if(size==n) {
+			System.out.println("Queue Overflow");
+			return;
+		}
+		front++;
+	    arr[rear]=n;
+		rear--;
+	}
+	
+	public void dqueue() {
+		if(size==0) {
+			System.out.println("Queue underflow");
+			return;
+		}
+		System.out.println("Removed : " + arr[front]);
+		front--;
+		rear++;
+	}
+	
+	public void peek() {
+		if(size==0) {
+			System.out.println("Queue is empty");
+			return;
+		}
+		System.out.println("Head: " + arr[front]);
+	}
+	
+	public void display() {
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}

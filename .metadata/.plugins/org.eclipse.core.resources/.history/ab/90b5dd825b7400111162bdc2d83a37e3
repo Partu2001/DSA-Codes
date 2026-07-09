@@ -1,0 +1,94 @@
+package tree;
+
+class Node {
+    int data;
+    Node left, right;
+    boolean lthread, rthread;
+
+    public Node(int data) {
+        this.data = data;
+        left = right = null;
+
+        // Initially both pointers are threads
+        lthread = true;
+        rthread = true;
+    }
+}
+
+public class ThreadedBinaryTree {
+
+    // Find the leftmost node
+    public static Node leftmost(Node node) {
+        if (node == null)
+            return null;
+
+        while (!node.lthread) {
+            node = node.left;
+        }
+
+        return node;
+    }
+
+    // Inorder Traversal without recursion
+    public static void inorder(Node root) {
+
+        Node curr = leftmost(root);
+
+        while (curr != null) {
+
+            System.out.print(curr.data + " ");
+
+            // If right pointer is a thread
+            if (curr.rthread) {
+                curr = curr.right;
+            } else {
+                curr = leftmost(curr.right);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Node root = new Node(20);
+        Node n10 = new Node(10);
+        Node n30 = new Node(30);
+        Node n5 = new Node(5);
+        Node n15 = new Node(15);
+
+        // Actual child links
+        root.left = n10;
+        root.lthread = false;
+
+        root.right = n30;
+        root.rthread = false;
+
+        n10.left = n5;
+        n10.lthread = false;
+
+        n10.right = n15;
+        n10.rthread = false;
+
+        // Thread links
+
+        // 5
+        n5.left = null;
+        n5.lthread = true;
+        n5.right = n10;
+        n5.rthread = true;
+
+        // 15
+        n15.left = n10;
+        n15.lthread = true;
+        n15.right = root;
+        n15.rthread = true;
+
+        // 30
+        n30.left = root;
+        n30.lthread = true;
+        n30.right = null;
+        n30.rthread = true;
+
+        System.out.println("Inorder Traversal:");
+        inorder(root);
+    }
+}

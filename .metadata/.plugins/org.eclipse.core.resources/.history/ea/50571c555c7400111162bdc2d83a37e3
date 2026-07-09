@@ -1,0 +1,90 @@
+package tree;
+
+import sun.jvm.hotspot.opto.Node;
+
+class TNode {
+    int data;
+    TNode left, right;
+    boolean lthread, rthread;
+
+    public TNode(int data) {
+        this.data = data;
+        left = right = null;
+        lthread = true;
+        rthread = true;
+    }
+}
+public class ThreadedBinaryTree {
+
+	
+	public static TNode leftmost(TNode node) {	
+		if(node==null) {
+			return null;
+		}
+		while(!node.lthread) {
+			node=node.left;
+		}
+		return node;
+	}
+	
+	
+	public static void inorder(TNode root) {
+		TNode curr=leftmost(root);
+		
+		while(curr!=null) {
+			System.out.println(curr.data + " ");
+		}
+		if(curr.rthread) {
+			curr=curr.right;
+		}
+		else {
+			curr=leftmost(curr.right);
+		}
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		TNode root = new TNode(20);
+		TNode n1 = new TNode(10);
+		TNode n3 = new TNode(30);
+		TNode n5 = new TNode(5);
+		TNode n15 = new TNode(15);
+
+		// Actual children
+		root.left = n1;
+		root.lthread = false;
+
+		root.right = n3;
+		root.rthread = false;
+
+		n1.left = n5;
+		n1.lthread = false;
+
+		n1.right = n15;
+		n1.rthread = false;
+
+		// Threads
+		n5.left = null;
+		n5.lthread = true;
+		n5.right = n1;
+		n5.rthread = true;
+
+		n15.left = n1;
+		n15.lthread = true;
+		n15.right = root;
+		n15.rthread = true;
+
+		n3.left = root;
+		n3.lthread = true;
+		n3.right = null;
+		n3.rthread = true;
+		
+		
+		
+		
+
+	}
+
+}

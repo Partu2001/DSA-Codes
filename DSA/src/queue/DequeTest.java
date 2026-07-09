@@ -1,0 +1,28 @@
+package queue;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class DequeTest {
+
+	public static void main(String[] args) {
+		
+		Deque<Integer> d=new ArrayDeque<Integer>();
+		
+		d.add(10);
+		d.add(20);
+		d.add(30);
+		d.add(40);
+		d.add(50);
+		
+		System.out.println(d);
+		
+		d.removeFirst();
+		System.out.println(d);
+		
+		d.removeLast();
+		System.out.println(d);
+		
+	}
+
+}

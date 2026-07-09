@@ -1,0 +1,81 @@
+package tree;
+
+class Node{
+	int data;
+	Node right,left;
+	boolean rthread,lthread;
+	
+	public Node(int data) {
+		this.data=data;
+		right=left=null;
+		rthread=false;
+		lthread=false;
+	}
+}
+
+public class ThreadedBinaryTree {
+
+	
+	public static Node leftmost(Node node) {	
+		if(node==null) {
+			return null;
+		}
+		while(!node.lthread) {
+			node=node.left;
+		}
+		return node;
+	}
+	
+	
+	public static void inorder(Node root) {
+		Node curr=leftmost(root);
+		
+		while(curr!=null) {
+			System.out.println(curr.data + " ");
+		}
+		if(curr.rthread) {
+			curr=curr.right;
+		}
+		else {
+			curr=leftmost(curr.right);
+		}
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		Node root=new Node(20);
+		Node n1=new Node(10);
+		Node n3=new Node(30);
+		Node n5=new Node(5);
+		Node n15=new Node(15);
+		
+		root.left=n1;
+		root.lthread=false;
+		
+		root.right=n3;
+		root.rthread=false;
+		
+		n1.left=n5;
+		n1.lthread=false;
+		
+		n1.right=n15;
+		n1.rthread=false;
+		
+		n5.left=null;
+		n5.rthread=false;
+		
+		n5.right=n1;
+		n5.rthread=false;
+		
+		n15.left=n1;
+		n15.lthread=true;
+		
+		
+		
+		
+
+	}
+
+}

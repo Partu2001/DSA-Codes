@@ -1,0 +1,31 @@
+package hashtable;
+
+import java.util.Hashtable;
+
+public class HashADT {
+
+	public static void main(String[] args) {
+	
+		Hashtable<Integer, String> ht =new Hashtable<Integer, String>();
+		
+		ht.put(101, "Partu");
+		ht.put(102, "Vinit");
+		ht.put(103, "Tush");
+		ht.put(104, "Rapper");
+		ht.put(105, "Pratik");
+		
+		System.out.println(ht);
+		
+		System.out.println(ht.get(101));
+		
+		ht.remove(105);
+		System.out.println(ht);
+		
+		System.out.println(ht.containsKey(103));
+		
+		for(Integer key:ht.keySet()) {
+			System.out.println(key + ": " + ht.get(key));
+		}
+	}
+
+}

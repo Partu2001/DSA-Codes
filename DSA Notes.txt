@@ -1,0 +1,656 @@
+
+******************************************************* 1. INTRODUCTION TO DATA STRUCTURE  **************************************************
+
+1.Organizing Data :
+ -Searching faster
+2.Efficiency : 
+ -Insert,Delete operations on an array as compared to Linked List.
+ -Searching operation when the number of records is more.
+3.Handling large volumes of data.
+4.Reusability of code.
+5.Abstraction level and client need not get into details of implementation.  
+
+** WHAT IS DATA TYPE :
+-Refers to the kind of data that variables many hold in a programming language.
+-Any type of data is stored as a particular pattern.
+-Data type helps to interpret this bit pattern.
+ Determines the logical set of operations that can be performed on the data.
+-To summerize :
+ Data type defines a collection of values and the set of operations performed on those values.
+
+** WHAT IS DATA STRUCTURE :
+-Data is the mathematical or logical model is known as Data Structures.
+-Why Data Structure :
+  Structure data within memory in proper format.
+  Better and Efficient utilization of memory.
+-Data structure is a set of DFA :
+D : Set of Data Object
+F : Set of opeartions (Functions)
+A : Set of Axioms (Rules)
+-Ex :  int arr[10]
+
+** TYPES OF DATA STRUCTURES :
+1.Linear Data Structure :
+ -Array
+ -Linked List
+ -Stack
+ -Queue
+
+2.Non-Linear Data Structure : 
+ -Tree
+ -Graph
+
+** WHY ALGORITHM :
+-Does not deal with machine specific deatils.
+-It deals with a method to solve a particular problem.
+-Alogorithm : 
+ Step by step procedure is used to solve problem.
+ These steps should be capable of being performed by a machine.
+ Must eventually stop and so procedure.
+
+* CHARACTERISTICS OF ALGORITHM :
+-Input : Should be zero or more quantities supplied from an external source.
+-Output : Should procedure at least one output (desired O/P)
+-Definitness : Each instructions should be clear and unambigous
+-Finitness : Should terminate within finite steps.
+-Effectiveness : 
+
+* SO WHAT SHOULD AN ALGORITHM HAVE :
+-Systematic instructions on tasks.
+-Stepwise form
+-Make use of sequence,selection,iteration,recursion etc.
+
+* PROGRAM :
+-A Program is an implementation of an algorithm to be run on specific computer and operating system.
+-An algorithm is more abstract.
+-Assumption about the data determine what data structure and algorithm would be used.
+
+********************************************************  2.SEARCHING & SORTING  *********************************************************
+
+* SEARCHING :
+-Searching is an operation which finds the location of a given element in a list.
+-The searcch is said to be successful if the element to be searched is found and unsuccessful if it is not found.
+-Types of Searching :
+1.Linear Search
+2.Binary Search
+
+1.Linear Search :
+-Simplest method of searching.
+-The element to be found is sequentially searched in the list.
+-This method is applied to the following list of items :
+ -Unsorted
+ -Sorted
+
+* ALGORITHM-FOR UNSORTED ARRAY :
+Consider there are n records in a table x(0) to x(n-1) each having a kay value k(0) to k(n-1)
+ 1.Initialise i to 0
+ 2.Read value of key to be searched.
+ 3.Check if i less than n if true,
+    Check if k(i) equals key,if true Display "Record Found"
+    Go to 6
+ 4.Else increment
+ 5.If i is equal to n then
+    1.Dispaly "No match found"
+ 6.Stop
+
+
+** LINEAR SEARCH IN SORTED LIST :
+-Sort list in ascending order.
+-Start searching from 0th elements and continue until the element is found.
+-Else an element whose value is greater than the value being searched is reached. 
+
+** SORTING :
+-A technique of arranging data either in ascending or descending order.
+-Advantages :
+ Easy access and maintain.
+ Makes searching faster.
+
+* TYPES OF SORTING :
+1.Exchange sort (Bubble Sort)
+2.Insertion Sort
+3.Selection Sort
+4.Tree Sort
+5.Merge Sort
+6.Radix Sort
+
+1.EXCHANGE SORT :
+-This involves exchanging data elements depending upon some conditions.
+-Techniques :
+ Simple Exchange Sort
+ Bubble Sort
+ Quick Sort
+
+2.INSERTION SORT :
+-Involves inserting an element at its correct position in the group of elements.
+-Techniques :
+ Simple Insertion Sort
+ Shell Sort
+
+3.SELECTION SORT :
+-Involve selection sort of successive elements and placing them in to proper sorted positions.
+-Methods : 
+ Straight Selection Sort
+ Heap Sort
+
+4.MERGE AND RADIX SORT :
+-Merging :
+ Process of combining two or more sorted data groups in to third.
+-Radix :
+ Comparing digits in to individual position.
+-Methods :
+ Merge Sort
+ Radix Sort
+
+
+*************************************************************  3. LINKED LIST  *******************************************************
+*REPRESENTATION OF LINKED LIST :
+-Memory need to be contiguous.
+-Each block called node.
+-All nodes are like .
+ Node has two parts - Data and reference of next node (Addresss). 
+
+* ADVANTAGES :
+-List fall under Linear Data Structure with linked storage representation.
+-Advantages :
+ Grow dynamically.
+ Insertion and deletion are fast.
+
+* TYPES OF LINKED LIST :
+1.Singly Linked List
+2.Doubly Linked List
+3.Circular Linked List 
+
+Ex. C++ style :
+ typedef class Employee node;
+ class Employee
+ {
+         int data;
+         node *next;
+};
+
+Ex. Java/c# style :
+   class Node 
+{
+       int data;
+       Node next;
+};
+
+* LINKED LIST OPERATIONS :
+1.Creating a Node
+2.Displaying a List
+3.Appending a Node
+4.Deleting a Node
+5.Merging two Lists
+6.Reversing a List
+7.Sorting the List
+
+* TRAVERSING THE LINKED LIST :
+-Check if the list is empty
+ if empty
+   Display a list is empty
+ if not empty
+   1.Take temporary reference e.g curr
+   2.Make it point to the first node
+   3.Move curr reference to next node by assinging the value of next refernce to it.
+   4.Repeat step 3 still curr is not equal to null.
+
+
+***************************************************************  4.CIRCULAR LINKED LIST  ********************************************************
+* Diff Singly and Circular Linked List :
+1.Singly Linked List : It contains Data and Next(Node).
+2.Circular Linked List : It conrains previous (Node),Data,Next(Node).
+
+** CIRCULAR LINKED LIST :
+-Advantages : 
+  Every node is accessible from given node.
+  Singly linked list - only in one direction till last node.But in circular linked list we can continue after last node.
+-Limitations :
+  Infinite loop while traversing if head node not identified.
+
+* APPLICATION OF CIRCULAR LINKED LIST :
+1.Music Play List (Next song loops back)
+2.Multi Player Games  
+
+* CREATING CIRCULAR LINKED LIST :
+-Create a new node using createNode method.
+-Case 1 : Check if the list is empty
+  Assign new nodes reference to last.
+  Set the next of new node to null.
+  Return the control.
+-Case 2 : Adding at the end of the list.
+  Take temp reference.Move the reference till the last node in the list.
+  Make new node next refer to first node.
+  Set the curr refer to the new node.
+  Lastly set the new node as the last node. 
+
+-In Circular Linked List last holds the address of first node.	
+-Unlike singly Linked List nodes can be traversed from start to end again and again.
+-Circular Linked List are two types :
+  1.Singly Circular Linked List
+  2.Doubly Circular Linked List
+
+***********************************************************  5.DOUBLY LINKED LIST  ******************************************************
+* INTRODUCTION :
+-Singly and singly circular Linked List :
+ Traversal in only one direction.
+-Sometimes it is required that we should be able to traverse the list in both directions.
+-To implemement this each node must contain two link fileds instead of one.
+-A linked list containing this kind of nodes is called Doubly Linked List.
+
+-Each node has two address fields and data field.
+-Address Fileds 
+ One points to next node in the list.
+ Other points to previous node in the list.
+
+* OPERATIONS :
+1.Insert 
+2.Display
+3.Reversing
+4.Sorting
+
+
+**********************************************************  6.STACK I  ********************************************************************
+** OPEARTIONS ON STACK :
+1.Push : 
+ A mentioned which places elements 'e' onto the stack if stack is not full.
+2.Pop : 
+ A method which takes out an item from the top of the stack if stack is not empty.
+3.Display :
+ Displaying the elements of stack.
+4.Peek : 
+ Printing the top most element of the stack.
+
+* Stack Empty and Stack Full :
+-Stack overflow condition (Stack Full)
+ If top is equal to sizeof the array
+-Stack Underflow condition (Stack Empty)
+ If top is equal to -1
+
+** REPRESENTATION OF QUEUE AS LINKED LIST :
+
+TOP
+ |
+ v
++------+------+
+|  25  |  *---|----+
++------+------+
+                  |
+                  v
+            +------+------+
+            |  10  |  *---|----+
+            +------+------+
+                              |
+                              v
+                        +------+------+
+                        |   5  |  *---|----+
+                        +------+------+
+                                          |
+                                          v
+                                    +------+------+
+                                    |  10  | NULL |
+                                    +------+------+
+
+Stack Empty : TOP = NULL
+-Limitation of using Arrays
+ Arrays have a fixed pre-defined size.
+-Using Linked List :
+ Elements can be added at run time and stack can grow dynamicallay.
+
+** APPLICATION OF STACK :
+-Reversal of String 
+-Recursion
+-Checking validity of an expression (Checking if expression contains balanced parenthisis or not).
+-Expression Conversion (Conversion of infix to prefix and postfix forms).
+-Expression Evaluation (Evaluation of postfix forms).
+-Tree traversal (Inorder,Preorder,Postorder)
+-Graph traversal (DFS)
+
+** RECURSION : 
+-Mechanism in which a method call itself.
+-Used for implementing complex programming logic like
+ Towers of Hanoi
+ Traversal in data structures like Trees etc.
+
+******************************************************************  7.STACK II  **********************************************************
+
+** POLISH NOTATION : 
+-Polish Mathematician Jan Lukasiewich came up with the new technique for representaion of arithmetic expression.
+ Oparator will be before or after operands.
+-Polish Notations in his honor.
+ Infix
+ Postfix
+ Prefix
+
+** TYPES OF NOTATIONS :
+1.Infix :
+ The operator is placed between the operand. 
+ A/B+c
+2.Prefix :
+ The oparator precedes the operands.
+ +XY
+3.Postfix :
+ The operator follows the operand.
+ XY+
+
+** DIFFERENCE CONVERSION :
+1.Infix to Prefix
+2.Infix to Postfix
+3.Prefix to Infix
+4.Prefix to Postfix
+5.Postfix to Infix
+6.Postfix to Prefix
+
+* Example :
+1.Infix : ( A+B ) / C * D - E
+   Postfix : AB +C/DE-
+   Prefix : -*/+ABCDE 
+
+** INFIX TO POSTFIX :
+* Key AssumptionsTo perform the conversion :
+-Scanning Direction: The expression is scanned from left to right.
+-Operators: Supported operators include ^ (exponentiation), +, -, *, and /.
+-Data Structure: A stack is necessary for the temporary placement of operators.
+-Termination: A unique symbol (e.g., #) is used to mark the end of the arithmetic expression.
+
+* Required Variables :
+-Infix String: A string containing the original expression.
+-Operator Stack: A stack to manage operator precedence and order.
+-Postfix String: A string to store the final converted expression.
+
+
+*************************************************************************  8.QUEUE  ******************************************************
+
+** Definition and PrinciplesLinear Data Structure : 
+-A queue organizes data in a sequential manner.
+
+* FIFO Principle: 
+-It operates on the First In First Out principle.
+-Elements are added (inserted) at the end, known as the rear.
+-Elements are removed (deleted) from the front, known as the front.
+
+* Key Indicators : 
+-front and rear are the specific pointers or indicators used to track the start and end of the queue.
+
+* Implementation Methods : 
+-Queues can be implemented in two primary ways :
+1.Using Arrays (Static implementation)
+2.Using Linked Lists (Dynamic implementation)
+
+** WHAT OPERATIONS CAN BE PERFORMED ON STACK : 
+1.EnQueue : 
+ A method which enqueues element 'e' in the queue from the rear end if the queue is not full
+
+2.DeQueue : 
+ A method which removed an item from the queue from front end if queue is not empty.
+
+3.Display : 
+ Displaying the elements of queue
+-Queue Overflow condition (Queue Full)
+-Queue Underflow condition (Queue Empty)
+
+** Representation of Queue As Linked List :
+
+                    Queue In
+                       ↓
+
+rear
+ │
+ ▼
++----+------+
+| 25 | 3000 |
++----+------+
+       │
+       ▼
+
++----+------+
+| 10 | 4000 |
++----+------+
+       │
+       ▼
+
++----+------+
+|  5 | 5000 |
++----+------+
+       │
+       ▼
+
++----+------+
+| 10 | NULL |
++----+------+
+       ▲
+       │
+     front
+
+                    Queue Out
+                       ↓
+
+
+***************************************************************  9.QUEUE II  ********************************************************
+
+** CIRCULAR QUEUE :
+-Need of  Circular Queue :
+ Avoids Memory wastage.
+ Empty posistions in an array can be effectively utilized.
+-Cam overcome by making use of Broken Sequenece
+ After rear or front reaches 5 they should become 0 again.
+
+** PRIORITY QUEUE :
+-Every element has some priority based on which it is processed.
+ High priority one is processed first (Priority 1 is higher than priority 2).
+-If two elements have same priority the FIFO is applied. 
+-In computer implementation priority queue is used in scheduling algorithm	
+
+** DEQUE :
+-Double Ended Queue
+ A linear data structure
+ Allows insertion and deleltion of elements from both ends
+  Unlike Linear Queue which follows FIFO.
+-If insertion and deletion from one end behaves like a stack.
+-If insertion at one and deletion from other and behaves like a queue.
+
+
+****************************************************************  10.TREE  ***************************************************************
+
+* DEFINATION :
+-It is a non linear data structure having finite set of nodes.
+-It is collection of vertices and edges.
+-An edge is a pair of vertices which are connected.
+-The vertices should be connected such that we should be able to travel one node to another.
+-There should not be anu closed path.
+
+* TERMINLOGIES OF TREE :
+-The number of sub trees of a node is called as its degree.
+-It is equal to number of outgoing edges from the node.
+-Nodes having degree 0 are called leaf nodes / terminal nodes of a tree.
+-Nodes having degree greater than 0 are called internal nodes / non terminal nodes.
+-Degree of tree is maximum degree of the nodes in the tree.
+
+* BINARY TREE :
+-A binary tree is an empty tree or it is a finite set of nodes with a root and two disjoint binary trees called the left sub tree and right sub tree.
+-The degree of any node in a binary tree is at most 2.
+
+* TRAVERSAL OF TREE :
+1.Inorder Traversal :
+ Left Child-Root-Right Child
+
+2.Preorder Traversal : 
+ Root-Left Child-Right Child
+
+3.PostOrder Traversal :
+ Left Child-Right Child-Root
+
+************************************************************  11.BINARY SEARCH TREE  ***************************************************
+
+** BINARY SEARCH TREE :
+-Value of the element to :
+ Left of root are less than the value of the root.
+ Right of root are higher than the value of root.
+
+* OPEARTIONS :
+1.Traversal : Preorder,Postorder,Inorder
+2.Searching Node
+3.Inserting Node
+4.Deleting Node
+5.Breadth first traversal
+6.Depth first treversal
+
+
+**************************************************************  12.THREADED BINARY TREE  **********************************************
+
+* NEED FOR THREADED BINARY TREE :
+-A Binary Tree of n nodes has n -1 edges.
+-In every node you have two pointer hence you have 2n pointer storing the address to the children.
+  Out of these only n + 1 pointers are used.
+-The remaining n + 1 pointers are having null.
+
+* Key Concepts of ThreadsPurpose :
+-In a binary tree with \(n\) nodes, there are \(n + 1\) NULL pointers. 
+-Threading replaces these NULL pointers with Threads to link nodes directly to their neighbors in a specific traversal order (usually inorder).
+
+* Mechanism : 
+-The left child pointer (if NULL) is used to store the inorder predecessor.
+-The right child pointer (if NULL) is used to store the inorder successor.
+
+* Advantage: 
+-These threads allow for tree traversal without the use of a stack or recursion,
+-saving memory and potentially increasing speed.
+
+
+*****************************************************************  13.GRAPH  ***********************************************************
+
+* GRAPH :
+-A data structure that consists of a set of nodes (also called vertices) and set of edges that establish relationship (connections) between the nodes.
+-A Graph G consists of two sets V and E.
+ V is a finite non empty set of vertices.
+ E is a set of pairs of vertices or nodes called edges.
+
+* TYPES OF GRAPHS :
+1.Udirected Graph
+2.Directed Graph
+3.Strongly Connected Graph
+4.Weakly Connected Graph
+5.Network / Weighted Graph
+6.Complete Graph
+
+1.UNDIRECTED GRAPH :
+-An Undirected Graph is a graph in which the edges have no direction. 
+-If there is an edge between two vertices A and B, 
+-you can travel from A to B and from B to A.
+-Notation: A — B
+-Ex : 
+      A
+     / \
+    B---C
+     \
+      D
+
+2.DIRECTED GRAPH :
+-It is a graph in which each edge is represented by specific direction or by directed pair < v1,v2>.
+ Here v1 is tail and v2 is head of the edge.
+ Directed graph are shortly called as digraphs.
+
+3.STRONGLY CONNECTED GRAPH : 
+-A directed graph is strongly connected if every vertex is reachable from every other vertex.
+-That means:
+ There is a path from A to B.
+ There is also a path from B to A
+-Ex : 
+        A
+     ↗ ↘
+    C ← B
+
+4.WEAKLY CONNECTED GRAPH :
+-A directed graph is weakly connected if it becomes connected after ignoring the direction of its edges.
+-Example
+A → B → C
+There is :
+A → B ✔
+B → C ✔
+C → A ✘
+So it is not strongly connected.
+
+5.NETWORK OR WEIGHTED GRAPH :
+-A Network Graph is a graph in which vertices (nodes) are connected by edges (links) to represent relationships or the flow of information, goods, or resources between them.
+-Network graphs are widely used in computer networks, transportation systems, social networks, communication systems, and electrical circuits.
+-Ex :
+         A
+      / | \
+     B  C  D
+      \ | /
+        E
+
+6.COMPLETE GRAPH :
+-A Complete Graph is a graph in which every vertex is directly connected to every other vertex by exactly one edge.
+-It is denoted by Kₙ, where n is the number of vertices.
+-Ex : 
+       A
+     /|\
+    / | \
+   B--|--C
+    \ | /
+     \|/
+      D
+
+
+************************************************************  14.HASH TABLES  **********************************************************
+
+* A GENERIC APPROACH :
+-For Sorting Records :
+  Key  ==>  Generate Array Index  ==>  Store the record on that array index
+
+-For Accessing Records :
+  Key  ==>  Generate Array Index  ==>  Get the record from that array index.
+
+-To generate array index hash function is used.
+  Converts key to array index
+  The array which supports hashing for sorting records or searching records called hash tables.
+
+-Collision 
+-Hash function may generate the same hash tables address for different keys.
+  Hash function should generate unique address which is not possible.
+  Choice of hash function such a way that it minimizes collision.
+
+* TABLE ADT :
+-Like an array operations can be performed on table.
+-A table is a collection of < Kay , Value > pairs.
+-Opeartions :
+ 1.Find data by key.
+ 2.Insert a new value pair (Key must be unique)
+ 3.Remove a pair,give the key
+ 4.List all pairs in the collection
+ 5.List all pairs in the collection in key value order (means kay1 < key2 is a meaningful operation)
+
+* LINKED LIST APPROACH :
+-Linked List Implementation :
+ Insert (x) : add x at head of list
+ Search (x) : start at head and scan list
+ Delete (x) : Start at head,scan list,and then delete if found
+
+* Finding Hash Value : 
+        Key %  No of elements
+
+* METHODS OF RESOLVING COLLISIONS :
+1.Choosing a good hash function which ensures minimum collision
+2.Resolving the collision.
+
+* COLLISION RESOLUTION :
+-Even if set of actual kay values is small the set of possible key values is large.
+-The hash function maps the set of possible values so u need to wory about collisions.
+-But if the set of actual values is small,how soon do you need to really worry about this.
+
+* METHODS OF RESOLVING COLLISIONS :
+1.Chaning : Put all elements that hash to same loaction in linked list.
+2.Open addressing : Successively examine value of people until finding an empty slot
+  Types : 
+   Linear Probing
+   Quadratic Probing
+   Double Hasing
+
+1.LINEAR PROBING :
+-Find hash key value through hash function and maps the key on particular positions in hash table.
+-If the key has same hash address then it will find the next empty position in hash table.
+-Consider hash table as circular array.
+  If table size is N then after N-1 position it will search from 0th position in array. 
+
+ 
+

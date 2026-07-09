@@ -1,0 +1,9 @@
+package hashtable;
+
+public class LinearTest {
+
+	public static void main(String[] args) {
+	
+	}
+
+}

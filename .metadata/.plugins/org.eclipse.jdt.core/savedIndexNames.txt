@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+D:\partu\SEED INFOTECH\DSA\.metadata\.plugins\org.eclipse.jdt.core
+1195455883.index
+2814680731.index
+1865797976.index

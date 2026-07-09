@@ -1,0 +1,81 @@
+package queue;
+
+public class CircularQueue {
+
+    int arr[];
+    int front, rear, size, n;
+
+    public CircularQueue(int n) {
+        this.n = n;
+        arr = new int[n];
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
+
+    
+    public void enqueue(int data) {
+        if (size == n) {
+            System.out.println("Queue Overflow");
+            return;
+        }
+        rear = (rear + 1) % n;
+        arr[rear] = data;
+        size++;
+    }
+
+   
+    public void dequeue() {
+        if (size == 0) {
+            System.out.println("Queue Underflow");
+            return;
+        }
+        System.out.println("Removed : " + arr[front]);
+        front = (front + 1) % n;
+        size--;
+    }
+
+    
+    public void peek() {
+        if (size == 0) {
+            System.out.println("Queue is Empty");
+            return;
+        }
+        System.out.println("Front Element : " + arr[front]);
+    }
+
+  
+    public void display() {
+        if (size == 0) {
+            System.out.println("Queue is Empty");
+            return;
+        }
+        System.out.print("Queue : ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(arr[(front + i) % n] + " ");
+        }
+        System.out.println();
+    }
+
+    
+    public static void main(String[] args) {
+        CircularQueue q = new CircularQueue(5);
+        q.enqueue(10);
+        q.enqueue(20);
+        q.enqueue(30);
+        q.enqueue(40);
+        q.enqueue(50);
+        q.display();
+
+        q.dequeue();
+
+        q.display();
+
+        q.enqueue(60);
+        q.enqueue(70);
+
+        q.display();
+
+        q.peek();
+    }
+}
